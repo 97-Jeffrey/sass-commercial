@@ -1,3 +1,8 @@
-export default function DashboardPage(){
-    return null
+
+import { auth } from "@clerk/nextjs/server"
+
+export default async function DashboardPage(){
+    const { userId, redirectToSignIn } = auth()
+    if(userId == null) redirectToSignIn()
+    // const products = await getProducts(userId)
 }
